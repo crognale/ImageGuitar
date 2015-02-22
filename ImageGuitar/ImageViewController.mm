@@ -22,7 +22,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     
-    CGFloat newHeight = 400;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height / 2.0;
+    CGFloat newHeight = screenHeight;
     CGFloat scaleFactor = newHeight / appDelegate.camImg.size.height;
     UIImage *smallImg = [self imageResize:appDelegate.camImg newHeight:newHeight newWidth: appDelegate.camImg.size.width * scaleFactor];
     NSLog(@"Img Size: h:%f w:%f\n",smallImg.size.height, smallImg.size.width);

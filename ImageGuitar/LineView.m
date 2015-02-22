@@ -113,8 +113,10 @@
                                                   withExtension:@"WAV"];
         
 
-        [self.avSounds addObject: [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil]];
-        [bp stroke];
+        if (soundURL != nil) {
+            [self.avSounds addObject: [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil]];
+        }
+            [bp stroke];
     }
     
  //   NSLog(@"dict: %@\n", self.pointDict);
