@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Capture View Controller-->
@@ -17,9 +18,45 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="eKi-OI-zUx" kind="presentation" identifier="GoToImageView" id="YCM-xh-WET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="SJ6-eK-Nap">
+            <objects>
+                <viewController id="eKi-OI-zUx" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5lU-GG-qm9"/>
+                        <viewControllerLayoutGuide type="bottom" id="lBV-Vb-9Z5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yfb-3g-vJb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-Wx-NIq">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tlg-Wx-NIq" firstAttribute="leading" secondItem="yfb-3g-vJb" secondAttribute="leadingMargin" id="GJx-r4-Hki"/>
+                            <constraint firstItem="lBV-Vb-9Z5" firstAttribute="top" secondItem="Tlg-Wx-NIq" secondAttribute="bottom" id="Hd6-f0-N9a"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tlg-Wx-NIq" secondAttribute="trailing" id="Zgl-CY-4eO"/>
+                            <constraint firstItem="Tlg-Wx-NIq" firstAttribute="top" secondItem="5lU-GG-qm9" secondAttribute="bottom" id="Zxq-ox-FP1"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imgView" destination="Tlg-Wx-NIq" id="j0N-Pl-UZK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MEY-8d-l3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999.5" y="387.5"/>
         </scene>
     </scenes>
 </document>

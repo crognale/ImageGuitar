@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22928F251A994D1D003CF843 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22928F241A994D1D003CF843 /* main.m */; };
-		22928F281A994D1D003CF843 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22928F271A994D1D003CF843 /* AppDelegate.m */; };
-		22928F2B1A994D1D003CF843 /* CaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22928F2A1A994D1D003CF843 /* CaptureViewController.m */; };
+		22928F251A994D1D003CF843 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22928F241A994D1D003CF843 /* main.mm */; };
+		22928F281A994D1D003CF843 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22928F271A994D1D003CF843 /* AppDelegate.mm */; };
+		22928F2B1A994D1D003CF843 /* CaptureViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22928F2A1A994D1D003CF843 /* CaptureViewController.mm */; };
 		22928F2E1A994D1D003CF843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22928F2C1A994D1D003CF843 /* Main.storyboard */; };
 		22928F301A994D1D003CF843 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22928F2F1A994D1D003CF843 /* Images.xcassets */; };
 		22928F331A994D1D003CF843 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22928F311A994D1D003CF843 /* LaunchScreen.xib */; };
@@ -17,6 +17,9 @@
 		22B6DC471A9985F4008C5275 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B6DC461A9985F4008C5275 /* opencv2.framework */; };
 		22B6DC5B1A99965C008C5275 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B6DC5A1A99965C008C5275 /* libstdc++.dylib */; };
 		22B6DC5C1A9996CE008C5275 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B6DC481A99943C008C5275 /* AssetsLibrary.framework */; };
+		22B6DC5F1A99A3B0008C5275 /* ImageViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22B6DC5E1A99A3B0008C5275 /* ImageViewController.mm */; };
+		22B6DC621A99CBA5008C5275 /* UIImage2OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 22B6DC611A99CBA5008C5275 /* UIImage2OpenCV.mm */; };
+		22B6DC631A99CC37008C5275 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B6DC561A9995BA008C5275 /* UIKit.framework */; };
 		6DB9ECCE7793730EE2C22ADA /* libPods-ImageGuitar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */; };
 /* End PBXBuildFile section */
 
@@ -33,11 +36,11 @@
 /* Begin PBXFileReference section */
 		22928F1F1A994D1D003CF843 /* ImageGuitar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGuitar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22928F231A994D1D003CF843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22928F241A994D1D003CF843 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		22928F261A994D1D003CF843 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		22928F271A994D1D003CF843 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22928F291A994D1D003CF843 /* CaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaptureViewController.h; sourceTree = "<group>"; };
-		22928F2A1A994D1D003CF843 /* CaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaptureViewController.m; sourceTree = "<group>"; };
+		22928F241A994D1D003CF843 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		22928F261A994D1D003CF843 /* AppDelegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AppDelegate.hpp; sourceTree = "<group>"; };
+		22928F271A994D1D003CF843 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		22928F291A994D1D003CF843 /* CaptureViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CaptureViewController.hpp; sourceTree = "<group>"; };
+		22928F2A1A994D1D003CF843 /* CaptureViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CaptureViewController.mm; sourceTree = "<group>"; };
 		22928F2D1A994D1D003CF843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22928F2F1A994D1D003CF843 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		22928F321A994D1D003CF843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -55,6 +58,10 @@
 		22B6DC561A9995BA008C5275 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22B6DC581A9995C4008C5275 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22B6DC5A1A99965C008C5275 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		22B6DC5D1A99A3B0008C5275 /* ImageViewController.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ImageViewController.hpp; sourceTree = "<group>"; };
+		22B6DC5E1A99A3B0008C5275 /* ImageViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageViewController.mm; sourceTree = "<group>"; };
+		22B6DC601A99CBA5008C5275 /* UIImage2OpenCV.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UIImage2OpenCV.hpp; sourceTree = "<group>"; };
+		22B6DC611A99CBA5008C5275 /* UIImage2OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImage2OpenCV.mm; sourceTree = "<group>"; };
 		2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.release.xcconfig"; sourceTree = "<group>"; };
 		520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.debug.xcconfig"; sourceTree = "<group>"; };
 		E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageGuitar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B6DC631A99CC37008C5275 /* UIKit.framework in Frameworks */,
 				22B6DC5C1A9996CE008C5275 /* AssetsLibrary.framework in Frameworks */,
 				22B6DC5B1A99965C008C5275 /* libstdc++.dylib in Frameworks */,
 				22B6DC471A9985F4008C5275 /* opencv2.framework in Frameworks */,
@@ -105,11 +113,15 @@
 		22928F211A994D1D003CF843 /* ImageGuitar */ = {
 			isa = PBXGroup;
 			children = (
-				22928F261A994D1D003CF843 /* AppDelegate.h */,
-				22928F271A994D1D003CF843 /* AppDelegate.m */,
-				22928F291A994D1D003CF843 /* CaptureViewController.h */,
-				22928F2A1A994D1D003CF843 /* CaptureViewController.m */,
+				22928F261A994D1D003CF843 /* AppDelegate.hpp */,
+				22928F271A994D1D003CF843 /* AppDelegate.mm */,
+				22928F291A994D1D003CF843 /* CaptureViewController.hpp */,
+				22928F2A1A994D1D003CF843 /* CaptureViewController.mm */,
 				22928F2C1A994D1D003CF843 /* Main.storyboard */,
+				22B6DC5D1A99A3B0008C5275 /* ImageViewController.hpp */,
+				22B6DC5E1A99A3B0008C5275 /* ImageViewController.mm */,
+				22B6DC601A99CBA5008C5275 /* UIImage2OpenCV.hpp */,
+				22B6DC611A99CBA5008C5275 /* UIImage2OpenCV.mm */,
 				22928F2F1A994D1D003CF843 /* Images.xcassets */,
 				22928F311A994D1D003CF843 /* LaunchScreen.xib */,
 				22928F221A994D1D003CF843 /* Supporting Files */,
@@ -121,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				22928F231A994D1D003CF843 /* Info.plist */,
-				22928F241A994D1D003CF843 /* main.m */,
+				22928F241A994D1D003CF843 /* main.mm */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -307,9 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22928F2B1A994D1D003CF843 /* CaptureViewController.m in Sources */,
-				22928F281A994D1D003CF843 /* AppDelegate.m in Sources */,
-				22928F251A994D1D003CF843 /* main.m in Sources */,
+				22928F2B1A994D1D003CF843 /* CaptureViewController.mm in Sources */,
+				22928F281A994D1D003CF843 /* AppDelegate.mm in Sources */,
+				22B6DC621A99CBA5008C5275 /* UIImage2OpenCV.mm in Sources */,
+				22B6DC5F1A99A3B0008C5275 /* ImageViewController.mm in Sources */,
+				22928F251A994D1D003CF843 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

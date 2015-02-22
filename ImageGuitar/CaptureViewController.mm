@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Sam Crognale. All rights reserved.
 //
 
-#import "CaptureViewController.h"
+#import "CaptureViewController.hpp"
 #import <LLSimpleCamera/LLSimpleCamera.h>
+#import "ImageViewController.hpp"
+#import "AppDelegate.hpp"
 //#import <opencv2/opencv.hpp>
 
 @interface CaptureViewController ()
@@ -90,6 +92,12 @@
             // show the image
         //    ImageViewController *imageVC = [[ImageViewController alloc] initWithImage:image];
           //  [self presentViewController:imageVC animated:NO completion:nil];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            appDelegate.camImg = image;
+            [self performSegueWithIdentifier:@"GoToImageView" sender:self];
+            
+            
         }
     } exactSeenImage:YES];
 }
