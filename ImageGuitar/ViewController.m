@@ -12,6 +12,7 @@
 @interface ViewController ()
 @property (strong, nonatomic) LLSimpleCamera *camera;
 @property (strong, nonatomic) UIButton *snapButton;
+@property (strong, nonatomic) UIButton *switchButton;
 @end
 
 @implementation ViewController
@@ -53,15 +54,27 @@
     self.snapButton.layer.rasterizationScale = [UIScreen mainScreen].scale;
     self.snapButton.layer.shouldRasterize = YES;
     [self.snapButton addTarget:self action:@selector(snapButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
 
     self.snapButton.center = self.view.center;
     CGRect rect = self.snapButton.frame;
     rect.origin = CGPointMake(rect.origin.x, self.view.frame.size.height - 15 - self.snapButton.frame.size.height);
     self.snapButton.frame = rect;
 
+    [self.view addSubview:self.snapButton];
+
     
-        [self.view addSubview:self.snapButton];
+    self.switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.switchButton.frame = CGRectMake(0, 0, 29.0f + 20.0f, 22.0f + 20.0f);
+    [self.switchButton setImage:[UIImage imageNamed:@"camera-switch.png"] forState:UIControlStateNormal];
+    self.switchButton.imageEdgeInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
+    [self.switchButton addTarget:self action:@selector(switchButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.switchButton];
+    
+}
+
+- (void)switchButtonPressed:(UIButton *)button {
+    
+    
     
 }
 
