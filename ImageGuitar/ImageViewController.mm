@@ -57,12 +57,27 @@ void getGray(const cv::Mat& input, cv::Mat& gray)
 
 
     cv::Mat color = [appDelegate.camImg toMat];
-    cv::Mat gray;
+    cv::Mat gray, output;
     getGray(color, gray);
     
+    /*
     cv::Mat grayColor;
     cv::cvtColor(gray, grayColor, cv::COLOR_GRAY2RGBA);
     self.imgView.image = [UIImage imageWithMat:grayColor andImageOrientation:UIImageOrientationRight];
+     */
+    
+    cv::Mat edges;
+    cv::Canny(gray, edges, 50, 150);
+    
+    std::vector< std::vector<cv::Point> > c;
+    
+    cv::findContours(edges, c, cv::RETR_LIST, cv::CHAIN_APPROX_NONE);
+    
+    color.copyTo(output);
+    cv::drawContours(output, c, -1, cv::Scalar(0,200,0));
+    
+    self.imgView.image = [UIImage imageWithMat:output andImageOrientation:UIImageOrientationRight];
+    
     
     self.imgView.frame = appDelegate.window.frame;
     
