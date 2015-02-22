@@ -9,6 +9,7 @@
 #include "UIImage2OpenCV.hpp"
 #import "ImageViewController.hpp"
 #import "AppDelegate.hpp"
+#import "cvneon.hpp"
 
 @interface ImageViewController ()
 
@@ -16,7 +17,28 @@
 
 @implementation ImageViewController
 
-
+void getGray(const cv::Mat& input, cv::Mat& gray)
+{
+    const int numChannes = input.channels();
+    
+    if (numChannes == 4)
+    {
+#if TARGET_IPHONE_SIMULATOR
+        cv::cvtColor(input, gray, cv::COLOR_BGRA2GRAY);
+#else
+        cv::neon_cvtColorBGRA2GRAY(input, gray);
+#endif
+        
+    }
+    else if (numChannes == 3)
+    {
+        cv::cvtColor(input, gray, cv::COLOR_BGR2GRAY);
+    }
+    else if (numChannes == 1)
+    {
+        gray = input;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,7 +56,14 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
 
-    self.imgView.image = [UIImage imageWithMat:[appDelegate.camImg toMat] andImageOrientation:UIImageOrientationRight];
+    cv::Mat color = [appDelegate.camImg toMat];
+    cv::Mat gray;
+    getGray(color, gray);
+    
+    cv::Mat grayColor;
+    cv::cvtColor(gray, grayColor, cv::COLOR_GRAY2RGBA);
+    self.imgView.image = [UIImage imageWithMat:grayColor andImageOrientation:UIImageOrientationRight];
+    
     self.imgView.frame = appDelegate.window.frame;
     
     

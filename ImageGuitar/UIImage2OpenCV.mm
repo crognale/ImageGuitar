@@ -80,7 +80,6 @@
 +(UIImage*) imageWithMat:(const cv::Mat&) image andImageOrientation: (UIImageOrientation) orientation;
 {
     cv::Mat rgbaView;
-    
     if (image.channels() == 3)
     {
         cv::cvtColor(image, rgbaView, cv::COLOR_BGR2RGBA);
