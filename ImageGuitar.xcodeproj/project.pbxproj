@@ -14,6 +14,7 @@
 		22928F301A994D1D003CF843 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22928F2F1A994D1D003CF843 /* Images.xcassets */; };
 		22928F331A994D1D003CF843 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22928F311A994D1D003CF843 /* LaunchScreen.xib */; };
 		22928F3F1A994D1D003CF843 /* ImageGuitarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22928F3E1A994D1D003CF843 /* ImageGuitarTests.m */; };
+		6DB9ECCE7793730EE2C22ADA /* libPods-ImageGuitar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		22928F381A994D1D003CF843 /* ImageGuitarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageGuitarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22928F3D1A994D1D003CF843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22928F3E1A994D1D003CF843 /* ImageGuitarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageGuitarTests.m; sourceTree = "<group>"; };
+		2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.release.xcconfig"; sourceTree = "<group>"; };
+		520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.debug.xcconfig"; sourceTree = "<group>"; };
+		E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageGuitar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DB9ECCE7793730EE2C22ADA /* libPods-ImageGuitar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				22928F211A994D1D003CF843 /* ImageGuitar */,
 				22928F3B1A994D1D003CF843 /* ImageGuitarTests */,
 				22928F201A994D1D003CF843 /* Products */,
+				63F3628EA47179D66D0082FF /* Pods */,
+				D786F9DE0105AB02A4025112 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		63F3628EA47179D66D0082FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */,
+				2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D786F9DE0105AB02A4025112 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22928F421A994D1D003CF843 /* Build configuration list for PBXNativeTarget "ImageGuitar" */;
 			buildPhases = (
+				7D123334DDC61A8B4E628104 /* Check Pods Manifest.lock */,
 				22928F1B1A994D1D003CF843 /* Sources */,
 				22928F1C1A994D1D003CF843 /* Frameworks */,
 				22928F1D1A994D1D003CF843 /* Resources */,
+				B6D8F9FA6B2E904BC9ABE24B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D123334DDC61A8B4E628104 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B6D8F9FA6B2E904BC9ABE24B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22928F1B1A994D1D003CF843 /* Sources */ = {
@@ -341,6 +400,7 @@
 		};
 		22928F431A994D1D003CF843 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageGuitar/Info.plist;
@@ -351,6 +411,7 @@
 		};
 		22928F441A994D1D003CF843 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageGuitar/Info.plist;
@@ -412,6 +473,7 @@
 				22928F441A994D1D003CF843 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22928F451A994D1D003CF843 /* Build configuration list for PBXNativeTarget "ImageGuitarTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +482,7 @@
 				22928F471A994D1D003CF843 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
