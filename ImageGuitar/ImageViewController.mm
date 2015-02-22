@@ -80,7 +80,7 @@
 }
 
 -(NSArray *) getLinesFromHTML {
-    NSString *myURLString = @"https://www.wolframcloud.com/objects/72f8c3fa-516a-462a-9ab6-9084e88bb2ec?url=http%3A%2F%2Fwww.imogenquest.net%2Ftwitter%2FmyDir%2Fuploads%2Ftest.png";
+    NSString *myURLString = @"https://www.wolframcloud.com/objects/861b5731-6592-4b69-b9e6-8d6c8b7f4065?url=http%3A%2F%2Fwww.imogenquest.net%2Ftwitter%2FmyDir%2Fuploads%2Ftest.png";
     
     
     NSError *error = nil;

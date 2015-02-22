@@ -48,18 +48,25 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    CGPoint tappedPt = [[touches anyObject] locationInView: self];
-    int     xPos = tappedPt.x;
-    int     yPos = tappedPt.y;
-    NSNumber *index = self.pointDict[[NSString stringWithFormat:@"%d, %d", xPos, yPos]];
-    if (index != nil) {
-        NSLog(@" In line %@\n",index);
-
-        AVAudioPlayer *ap = (AVAudioPlayer *)self.avSounds[[index intValue]];
-        NSLog(@"ap = %p\n",ap);
-        [ap play];
+    
+    
+ //   CGPoint tappedPt = [[touches anyObject] locationInView: self];
+    
+    NSArray *tappedPts = [touches allObjects];
+    NSLog(@"tappedPts= %@\n",tappedPts);
+    
+    for (int i = 0; i < tappedPts.count; i++) {
         
+        CGPoint tappedPt = [[tappedPts objectAtIndex:i] locationInView:self];
+        int     xPos = tappedPt.x;
+        int     yPos = tappedPt.y;
+        NSNumber *index = self.pointDict[[NSString stringWithFormat:@"%d, %d", xPos, yPos]];
+        if (index != nil) {
+            NSLog(@" In line %@\n",index);
 
+            AVAudioPlayer *ap = (AVAudioPlayer *)self.avSounds[[index intValue]];
+            [ap play];
+        }
         
     }
 
@@ -72,8 +79,6 @@
     
     NSArray *wavelens = (NSArray *)lineData[0];
     size_t numLines = wavelens.count;
-    NSLog(@"wavelens: %@\n numLines: %d",wavelens, (int)numLines);
-    
 
     
     for (size_t i = 0; i < numLines; i++) {
@@ -104,10 +109,8 @@
             
             prev = p;
                 }
-        NSLog(@"sound string: %@\n", [NSString stringWithFormat:@"linesound%d", (int) [wavelens[i] intValue]]);
         NSURL *soundURL = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"linesound%d", [wavelens[i] intValue]]
                                                   withExtension:@"WAV"];
-        NSLog(@"soundURL: %@\n",soundURL);
         
 
         [self.avSounds addObject: [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil]];
