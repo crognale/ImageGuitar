@@ -71,6 +71,8 @@
 #  endif
 #endif
 
+//! @cond IGNORED
+
 namespace cv
 {
 #ifdef HAVE_TBB
@@ -126,40 +128,6 @@ namespace cv
     // NULL otherwise.
     CV_EXPORTS const char* currentParallelFramework();
 } //namespace cv
-
-#define CV_INIT_ALGORITHM(classname, algname, memberinit) \
-    static inline ::cv::Algorithm* create##classname##_hidden() \
-    { \
-        return new classname; \
-    } \
-    \
-    static inline ::cv::Ptr< ::cv::Algorithm> create##classname##_ptr_hidden() \
-    { \
-        return ::cv::makePtr<classname>(); \
-    } \
-    \
-    static inline ::cv::AlgorithmInfo& classname##_info() \
-    { \
-        static ::cv::AlgorithmInfo classname##_info_var(algname, create##classname##_hidden); \
-        return classname##_info_var; \
-    } \
-    \
-    static ::cv::AlgorithmInfo& classname##_info_auto = classname##_info(); \
-    \
-    ::cv::AlgorithmInfo* classname::info() const \
-    { \
-        static volatile bool initialized = false; \
-        \
-        if( !initialized ) \
-        { \
-            initialized = true; \
-            classname obj; \
-            memberinit; \
-        } \
-        return &classname##_info(); \
-    }
-
-
 
 /****************************************************************************************\
 *                                  Common declarations                                   *
@@ -300,5 +268,7 @@ typedef enum CvStatus
     CV_OK                       =   CV_NO_ERR
 }
 CvStatus;
+
+//! @endcond
 
 #endif // __OPENCV_CORE_PRIVATE_HPP__

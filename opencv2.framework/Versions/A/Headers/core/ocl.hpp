@@ -46,12 +46,17 @@
 
 namespace cv { namespace ocl {
 
+//! @addtogroup core_opencl
+//! @{
+
 CV_EXPORTS_W bool haveOpenCL();
 CV_EXPORTS_W bool useOpenCL();
 CV_EXPORTS_W bool haveAmdBlas();
 CV_EXPORTS_W bool haveAmdFft();
 CV_EXPORTS_W void setUseOpenCL(bool flag);
 CV_EXPORTS_W void finish();
+
+CV_EXPORTS bool haveSVM();
 
 class CV_EXPORTS Context;
 class CV_EXPORTS Device;
@@ -245,7 +250,10 @@ public:
     void* ptr() const;
 
     friend void initializeContextFromHandle(Context& ctx, void* platform, void* context, void* device);
-protected:
+
+    bool useSVM() const;
+    void setUseSVM(bool enabled);
+
     struct Impl;
     Impl* p;
 };
@@ -663,8 +671,19 @@ protected:
 
 CV_EXPORTS MatAllocator* getOpenCLAllocator();
 
-CV_EXPORTS_W bool isPerformanceCheckBypassed();
-#define OCL_PERFORMANCE_CHECK(condition) (cv::ocl::isPerformanceCheckBypassed() || (condition))
+
+#ifdef __OPENCV_BUILD
+namespace internal {
+
+CV_EXPORTS bool isPerformanceCheckBypassed();
+#define OCL_PERFORMANCE_CHECK(condition) (cv::ocl::internal::isPerformanceCheckBypassed() || (condition))
+
+CV_EXPORTS bool isCLBuffer(UMat& u);
+
+} // namespace internal
+#endif
+
+//! @}
 
 }}
 
