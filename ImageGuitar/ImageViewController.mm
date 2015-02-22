@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 Sam Crognale. All rights reserved.
 //
 
-#include "UIImage2OpenCV.hpp"
 #import "ImageViewController.hpp"
 #import "AppDelegate.hpp"
-#import "cvneon.hpp"
+#import "LineView.h"
 
 @interface ImageViewController ()
 
@@ -17,61 +16,39 @@
 
 @implementation ImageViewController
 
-void getGray(const cv::Mat& input, cv::Mat& gray)
-{
-    const int numChannes = input.channels();
-    
-    if (numChannes == 4)
-    {
-#if TARGET_IPHONE_SIMULATOR
-        cv::cvtColor(input, gray, cv::COLOR_BGRA2GRAY);
-#else
-        cv::neon_cvtColorBGRA2GRAY(input, gray);
-#endif
-        
-    }
-    else if (numChannes == 3)
-    {
-        cv::cvtColor(input, gray, cv::COLOR_BGR2GRAY);
-    }
-    else if (numChannes == 1)
-    {
-        gray = input;
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     
-    self.image = appDelegate.camImg;
+    CGFloat newHeight = 400;
+    CGFloat scaleFactor = newHeight / appDelegate.camImg.size.height;
+    UIImage *smallImg = [self imageResize:appDelegate.camImg newHeight:newHeight newWidth: appDelegate.camImg.size.width * scaleFactor];
+    NSLog(@"Img Size: h:%f w:%f\n",smallImg.size.height, smallImg.size.width);
     
-    // Do any additional setup after loading the view.
+    [self postImage:smallImg];
+    NSArray *lineData = [self getLinesFromHTML];
+    
+    LineView *lv = [[LineView alloc] initWithFrame:self.view.frame];
+    lv.lineData = lineData;
+    [self.view addSubview:lv];
+    [lv setNeedsDisplay];
+
 }
+
 
 - (void)viewWillAppear:(BOOL)animated{
 }
 
-bool contourComp(std::vector<cv::Point> &a, std::vector<cv::Point> &b) {
-    return a.size() > b.size();
-}
 
 - (void)viewDidAppear:(BOOL)animated {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    CGFloat newHeight = 400;
-    CGFloat scaleFactor = newHeight / appDelegate.camImg.size.height;
-    appDelegate.camImg = [self imageResize:appDelegate.camImg newHeight:newHeight newWidth: appDelegate.camImg.size.width * scaleFactor];
-    NSLog(@"Img Size: h:%f w:%f\n",appDelegate.camImg.size.height, appDelegate.camImg.size.width);
-    [self postImage:appDelegate.camImg];
-    [self getLinesFromHTML];
-    
-    
-    self.imgView.image = appDelegate.camImg;
-    self.imgView.frame = appDelegate.window.frame;
-    
-    
+
+
 }
+
+
 
 -(void) postImage:(UIImage*) myImage {
     NSData *imageData = UIImageJPEGRepresentation(myImage,0.2);     //change Image to NSData
@@ -102,7 +79,7 @@ bool contourComp(std::vector<cv::Point> &a, std::vector<cv::Point> &b) {
     
 }
 
--(void) getLinesFromHTML {
+-(NSArray *) getLinesFromHTML {
     NSString *myURLString = @"https://www.wolframcloud.com/objects/72f8c3fa-516a-462a-9ab6-9084e88bb2ec?url=http%3A%2F%2Fwww.imogenquest.net%2Ftwitter%2FmyDir%2Fuploads%2Ftest.png";
     
     
@@ -118,14 +95,16 @@ bool contourComp(std::vector<cv::Point> &a, std::vector<cv::Point> &b) {
     if (error != nil)
     {
         NSLog(@"Error : %@", error);
+        return nil;
     }
     else
     {
         NSData *jsonData = [myHTMLString dataUsingEncoding:NSUTF8StringEncoding];
         NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error: &error];
         NSLog(@"%@\n",json);
+        return json;
+
     }
-    
 }
 
 

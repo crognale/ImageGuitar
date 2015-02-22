@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#include <opencv2/opencv.hpp>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
