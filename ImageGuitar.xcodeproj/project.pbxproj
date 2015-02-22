@@ -14,6 +14,7 @@
 		22928F301A994D1D003CF843 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22928F2F1A994D1D003CF843 /* Images.xcassets */; };
 		22928F331A994D1D003CF843 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22928F311A994D1D003CF843 /* LaunchScreen.xib */; };
 		22928F3F1A994D1D003CF843 /* ImageGuitarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22928F3E1A994D1D003CF843 /* ImageGuitarTests.m */; };
+		22B6DC431A997813008C5275 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B6DC421A997813008C5275 /* opencv2.framework */; };
 		6DB9ECCE7793730EE2C22ADA /* libPods-ImageGuitar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		22928F381A994D1D003CF843 /* ImageGuitarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageGuitarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22928F3D1A994D1D003CF843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22928F3E1A994D1D003CF843 /* ImageGuitarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageGuitarTests.m; sourceTree = "<group>"; };
+		22B6DC421A997813008C5275 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.release.xcconfig"; sourceTree = "<group>"; };
 		520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageGuitar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageGuitar/Pods-ImageGuitar.debug.xcconfig"; sourceTree = "<group>"; };
 		E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageGuitar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B6DC431A997813008C5275 /* opencv2.framework in Frameworks */,
 				6DB9ECCE7793730EE2C22ADA /* libPods-ImageGuitar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +141,7 @@
 		D786F9DE0105AB02A4025112 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22B6DC421A997813008C5275 /* opencv2.framework */,
 				E3E4DB6CDEF81EB4F8D3FBCC /* libPods-ImageGuitar.a */,
 			);
 			name = Frameworks;
@@ -403,6 +407,11 @@
 			baseConfigurationReference = 520D3EBF57D7725B4A59BC4D /* Pods-ImageGuitar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sam/Downloads,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ImageGuitar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +423,11 @@
 			baseConfigurationReference = 2D0FB7CEA33FCEB3F21B7547 /* Pods-ImageGuitar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sam/Downloads,
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ImageGuitar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

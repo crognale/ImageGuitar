@@ -73,9 +73,7 @@
 }
 
 - (void)switchButtonPressed:(UIButton *)button {
-    
-    
-    
+    [self.camera togglePosition];
 }
 
 - (void)snapButtonPressed:(UIButton *)button {
